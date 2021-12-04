@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\UserAccessToken;
 
 class SimpleTokenMiddleware
 {
@@ -15,7 +16,8 @@ class SimpleTokenMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ( $request->bearerToken() !== 'kelompok_2_token') {
+        $user = UserAccessToken::where('token', '=', $request->bearerToken())->first();
+        if ($user==null) {
             return response(['Unauthorized'], 401);
         }
 

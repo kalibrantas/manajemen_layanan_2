@@ -43,6 +43,18 @@ $router->group(['prefix' => 'layanan_data_pegawai','middleware' => SimpleTokenMi
     $router->delete('pegawai/{id}', ['uses' => 'PegawaiController@delete']);
 
     $router->put('pegawai/{id}', ['uses' => 'PegawaiController@update']); 
+
+    $router->get('arsip',  ['uses' => 'ArsipController@showAll']);
+
+    $router->get('arsip/{id}', ['uses' => 'ArsipController@showOne']);
+
+    $router->post('arsip', ['uses' => 'ArsipController@create']);
+
+    $router->delete('arsip/{id}', ['uses' => 'ArsipController@delete']);
+
+    $router->put('arsip/{id}', ['uses' => 'ArsipController@update']); 
+
+    $router->get('arsip/file/{name}', ['uses' => 'ArsipController@file']); 
 });
 
 $router->group(['prefix' => 'layanan_kinerja_pegawai','middleware' => SimpleTokenMiddleware::class],function () use ($router) {

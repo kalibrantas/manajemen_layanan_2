@@ -16,7 +16,7 @@ class PegawaiController extends Controller
     {
         return response()->json(Pegawai::find($id));
     }
-    public function show()
+    public function showAll()
     {
         return response()->json(Pegawai::all());
     }

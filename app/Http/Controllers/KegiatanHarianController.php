@@ -28,6 +28,11 @@ class KegiatanHarianController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request, [
+            'id_pegawai' => 'exists:ldp_pegawai,id',
+        ]);
+
+        
         $author = KegiatanHarian::create($request->all());
 
         return response()->json($author, 201);

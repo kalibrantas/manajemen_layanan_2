@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Arsip extends Model
+class UserAccessToken extends Model
 {
 
-    protected $table = 'ldp_arsip';
+    protected $table = 'user_access_token';
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +15,7 @@ class Arsip extends Model
      * @var array
      */
     protected $fillable = [
-        'id_pegawai','id_jenis_arsip', 'nama_arsip', 'file','url'
+        'nama_instansi', 'token'
     ];
 
     /**

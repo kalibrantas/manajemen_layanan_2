@@ -28,6 +28,10 @@ class CapaianBulananController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request, [
+            'id_pegawai' => 'exists:ldp_pegawai,id',
+        ]);
+
         $author = CapaianBulanan::create($request->all());
 
         return response()->json($author, 201);
